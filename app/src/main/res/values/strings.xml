@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">2Lab_Cvilikaite</string>
+    <string name="button">Calculate count</string>
+    <string name="calculate_count">Calculate count</string>
+    <string-array name="counterOptions">
+        <item>words</item>
+        <item>chars</item>
+    </string-array>
+</resources>
