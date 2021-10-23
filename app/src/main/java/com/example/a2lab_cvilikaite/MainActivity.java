@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
     Spinner countingOptions;
     EditText inputText;
     TextView resultText;
-    Button clickButton = (Button) findViewById(R.id.button);
+    Button button = (Button) findViewById(R.id.button);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,35 +37,6 @@ public class MainActivity extends AppCompatActivity {
         // Apply the adapter to the spinner
         this.countingOptions.setAdapter(adapter);
 
-        clickButton.setOnClickListener( new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-
-            }
-        }
     }
-    button.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            // Take action.
-        }
-    });
-    clickButton.setOnClickListener( new OnClickListener() {
-        @Override
-        public void onItemSelected(AdapterView<?> arg0, View arg1, int position,long id) {
-            String line = this.inputText.toString().replace('.', ' ').replace(',', ' ');
-            int wordsCount = (int) TextCounter.wordCount(line);
-            String formattedResult = String.valueOf(wordsCount);
-            this.resultText.setText(formattedResult);
-        }
-        @Override
-        public void onItemSelected(AdapterView<?> arg1, View arg2, int position,long id) {
-            String line = this.inputText.toString();
-            int charCount = (int) TextCounter.charCount(line);
-            String formattedResult = String.valueOf(charCount);
-            this.resultText.setText(formattedResult);
-        }
-    }
-    );
+
 }
