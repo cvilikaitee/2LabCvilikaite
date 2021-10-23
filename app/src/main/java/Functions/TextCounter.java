@@ -2,7 +2,7 @@ package Functions;
 
 public class TextCounter {
     public static int wordCount(String line) {
-        int numWords = 0;
+        long numWords = 0;
         int index = 0;
         boolean prevWhiteSpace = true;
         while (index < line.length()) {
@@ -13,9 +13,9 @@ public class TextCounter {
             }
             prevWhiteSpace = currWhiteSpace;
         }
-        return  numWords;
+        return (int) numWords;
     }
     public static int charCount(String line) {
-        return  line.length();
+    return line.length();
     }
 }

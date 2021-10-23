@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.AdapterView;
+import android.widget.Toast;
 
 import Functions.TextCounter;
 
@@ -17,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
     Spinner countingOptions;
     EditText inputText;
     TextView resultText;
-    Button button = (Button) findViewById(R.id.button);
+    TextView textView2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,5 +39,27 @@ public class MainActivity extends AppCompatActivity {
         this.countingOptions.setAdapter(adapter);
 
     }
-
+    public void onButtonClick(View view) {
+        String text = this.countingOptions.getSelectedItem().toString();
+        String line = this.inputText.getText().toString().replace('.', ' ').replace(',', ' ');
+        if(line.isEmpty())
+            Toast.makeText(this, "Please enter the text", Toast.LENGTH_LONG).show();
+        else {
+            if (text.equals("words")) {
+                Toast.makeText(this, "Words are counting....", Toast.LENGTH_LONG).show();
+                int wordsCount = (int) TextCounter.wordCount(line);
+                String formattedResult = String.valueOf(wordsCount);
+                Toast.makeText(this, "Words were counted.", Toast.LENGTH_LONG).show();
+                this.resultText.setText("count is = " + formattedResult);
+            } else {
+                Toast.makeText(this, "Chars are counting....", Toast.LENGTH_LONG).show();
+                int charCount = (int) TextCounter.charCount(line);
+                //String formattedResult = String.valueOf(charCount);
+                String formattedResult = Integer.toString(charCount);
+                this.resultText.setText(formattedResult);
+                Toast.makeText(this, "Chars were counted.", Toast.LENGTH_LONG).show();
+                this.resultText.setText("count is = " + formattedResult);
+            }
+        }
+    }
 }
