@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
     }
     public void onButtonClick(View view) {
         String text = this.countingOptions.getSelectedItem().toString();
-        String line = this.inputText.getText().toString().replace('.', ' ').replace(',', ' ');
+        String line = this.inputText.getText().toString();
         if(line.isEmpty())
             Toast.makeText(this, "Please enter the text", Toast.LENGTH_LONG).show();
         else {
